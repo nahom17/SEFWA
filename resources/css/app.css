@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.pagination .page-link {
+    font-size: 14px;
+    /* Reduce text & icon size */
+    padding: 5px 10px;
+    /* Adjust spacing */
+}
+
+.pagination .page-item {
+    margin: 2px;
+    /* Add small spacing */
+}
+
+.pagination .page-link span {
+    font-size: 14px;
+    /* Resize << >> icons */
+}
