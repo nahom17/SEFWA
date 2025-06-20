@@ -19,17 +19,17 @@ class GoalScorer extends Model
         'assists'
     ];
 
-    public function fixture()
+    public function fixture(): belongsTo
     {
         return $this->belongsTo(Fixture::class);
     }
 
-    public function player()
+    public function player(): belongsTo
     {
         return $this->belongsTo(Player::class);
     }
 
-    public function club()
+    public function club():belongsTo
     {
         return $this->belongsTo(Club::class);
     }

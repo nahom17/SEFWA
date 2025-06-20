@@ -58,11 +58,11 @@
     }
 }
     </style>
-   
+
     @php
                     //$fixtureIds = [5, 55];
 //$fixtures = \App\Models\Fixture::whereIn('id', $fixtureIds) ->where('is_completed', false) ->orderBy('match_date') ->get();
-                    
+
                      // $fixtures = \App\Models\Fixture::whereDate('match_date', '2025-06-01')->where('is_completed', false)->orderBy('match_date')->get();
                    $fixtures = \App\Models\Fixture::where('is_completed', false)->orderBy('match_date')->get();
                     $results = \App\Models\Fixture::where('is_completed', true)->orderBy('match_date' , 'desc')->get();
@@ -72,22 +72,22 @@
             // ->orderBy('match_date', 'asc')
             // ->paginate(198);
                 @endphp
-                
-                
-                
+
+
+
      @auth
         @if(auth()->user()->role == 'admin'  && $fixtures->count() == 0)
             <button wire:click="generateFixtures" class="btn btn-primary mb-3">gtmat srae</button>
         @endif
     @endauth
-    
+
     @if($fixtures->count() > 0)
-    
-<h2 class="text-center text-dark"> 🗓️Upcoming Fixtures </br>🗓️nay zmexie  mesre gtmat <br> 🗓️ናይ ዝመጽእ መስርዕ ግጥማት  </br>01-06-2025</h2>  
+
+<h2 class="text-center text-dark"> 🗓️Upcoming Fixtures </br>🗓️nay zmexie  mesre gtmat <br> 🗓️ናይ ዝመጽእ መስርዕ ግጥማት  </br>01-06-2025</h2>
 <div class="table-responsive-md">
-     
+
     <table class="table mobile-small-text table-striped table-bordered table-hover table-md">
-       
+
     <thead>
 
     </thead>
@@ -104,8 +104,8 @@
                                 <!--<img style="width: 50px; height: 50px; margin-right: 10px;"-->
                                 <!--    src="{{ asset('storage/' . $logoPath) }}"-->
                                 <!--    alt="">-->
-                                    
-                                    
+
+
                                     <div class="d-flex align-items-center">
        <img src="{{ $logoPath ? route('logo.show', ['filename' => basename($logoPath)]) : asset('fallback-logo.png') }}"
      class="img-fluid rounded-circle mb-3 mt-3"
@@ -124,7 +124,7 @@
                                     class="form-control"
                                     value="{{ \Carbon\Carbon::parse($fixture->match_date)->format('Y-m-d\TH:i') }}"
                                     min="{{ now()->format('Y-m-d\TH:i') }}">
-                                    
+
                                     <br>
                                     <input type="text" name="newStadium" value="{{ old('stadium',$fixture->stadium )}} " wire:model="newStadium" class="form-control">
                                     <br>
@@ -133,7 +133,7 @@
                                 {{ \Carbon\Carbon::parse($fixture->match_date)->format('d-m-Y') }}
                                 <br>
                                 {{ \Carbon\Carbon::parse($fixture->match_date)->format('h:i A') }}
-                                
+
                                 <br>
                                 <span>{{ $fixture->stadium }}</span>
                                 <br>
@@ -190,35 +190,35 @@
     @else
         <h2 class="text-center">Senbet  gtmat yelon erefti eyu <br> ሰንበት ግጥማት የለን ዕረፍቲ እዩ</h2>
     @endif
-    
+
 <hr><div class="container mt-4">  <!-- Removed duplicate mt-3 -->
     <div class="remit-banner mt-5">
         <div class="remit-logo">Remitly ናብ ኩሉ ሃገራት መሓወሊ</div>
 
         <div class="remit-offer">
-            ናብ ዝደለኻዮ ቦታ ገንዘብ ኪሰድድ ትኸእል 
-            <span class="remit-highlight">10 ኢሮ ሞቕሺሽ(bonus)</span> 
+            ናብ ዝደለኻዮ ቦታ ገንዘብ ኪሰድድ ትኸእል
+            <span class="remit-highlight">10 ኢሮ ሞቕሺሽ(bonus)</span>
             €100 ምስ እትሰድድ
         </div>
 
         <div class="remit-benefits">
             <div class="remit-benefit-item">
-                <span class="remit-check">✅</span> 
+                <span class="remit-check">✅</span>
                 ውሑስ ኣብ ግዜዩ ዝበጽሕ ብፍላይ ናብ ኤርትርያ፡ ኢትዮጵያ ካልኦት ሃገራትን
             </div>
 
             <div class="remit-benefit-item">
-                <span class="remit-check">✅</span> 
+                <span class="remit-check">✅</span>
                 ዝላዓለ ናይ ሸርፉ ብዝሒ ኣለዎ ፡ ምሰደዲ ከኣ 5 ኢሮ ብዝሒ እትሰዶ ገንዘብ ብዘይገድስ ።
             </div>
 
             <div class="remit-benefit-item">
                 <span class="remit-check">✅</span>  <!-- Added for consistency -->
-                ናብ ኤርትራ €100 ብ ኣስታት 1550 ክሳብ 1650 ናቕፋ <br> አዚ ሰሙን 100 euro b 1679 ኣላ 
+                ናብ ኤርትራ €100 ብ ኣስታት 1550 ክሳብ 1650 ናቕፋ <br> አዚ ሰሙን 100 euro b 1679 ኣላ
             </div>
 
             <div class="remit-benefit-item">
-                <span class="remit-check">✅</span> 
+                <span class="remit-check">✅</span>
                 አቲ ገንዘብ ምስ ሰደካዪ ነቲ ተቀባሊ መልእኽቲ ይበጽሖ አዩ።
             </div>
         </div>
@@ -231,14 +231,14 @@
     </div>  <!-- Closing remit-banner -->
 </div>  <!-- Closing container --><hr>
     @if($results)
-    
+
             <div class="table-responsive-md">
-           
-    
+
+
     <table class="table mobile-small-text table-striped table-bordered table-hover table-md">
-         
+
         <h2 class="text-center text-dark"> ✅Completed Fixtures & Results </br>✅ nay zhalefe xewtatat wxiet <br>✅ናይ ዝሓለፈ ጸወታት ውጽኢት</h2>
-        
+
     <thead>
 
     </thead>
@@ -255,8 +255,8 @@
                                 <!--<img style="width: 50px; height: 50px; margin-right: 10px;"-->
                                 <!--    src="{{ asset('storage/' . $logoPath) }}"-->
                                 <!--    alt="">-->
-                                    
-                                    
+
+
                                     <div class="d-flex align-items-center">
        <img src="{{ $logoPath ? route('logo.show', ['filename' => basename($logoPath)]) : asset('fallback-logo.png') }}"
      class="img-fluid rounded-circle mb-3 mt-3"
@@ -308,7 +308,7 @@
     </div>
     </div>
     @else
-        <h2 class="text-center">mesre gtmat aytemedeben alo</h2>
+        <h2 class="text-center">Fc Barentu is the winner of EriHolland leauge 2025 </h2>
     @endif
 
 </div>

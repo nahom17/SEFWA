@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Club;
 use Illuminate\Database\Seeder;
 
-use App\Models\Club;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ClubSeeder extends Seeder
 {
@@ -15,9 +15,9 @@ class ClubSeeder extends Seeder
     public function run(): void
     {
         $clubs = [
-            'Elabered','MayAyni',' Debarwa' ,' Mendefera',
-            ' Barentu',' Adi Quala',' Asmara','  Tserona',
-            ' Senafe',' Keren',' Dekemhare','  Teseney',
+            'Dekemhare','Mendefera',' Keren' ,' Adi_keyh',
+            ' Senafe',' Segeneyti',' Asmara','  Mayani',
+            ' Barentu',' Meraguz',' Adi_quala',
         ];
 
         foreach ($clubs as $club) {
